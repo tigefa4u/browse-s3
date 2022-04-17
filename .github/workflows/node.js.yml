@@ -28,4 +28,4 @@ jobs:
         cache: 'yarn'
     - run: yarn
     - run: yarn run build
-    - run: yarn run testall
+    - run: npm install -g npm-run-all && yarn run testall
