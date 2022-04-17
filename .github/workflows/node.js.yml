@@ -18,14 +18,17 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [12, 14, 16]
+        architecture: [x64]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+        architecture: ${{ matrix.architecture }}
+        check-latest: true
         cache: 'yarn'
     - run: npx browserslist@latest --update-db && yarn
     - run: yarn run build
