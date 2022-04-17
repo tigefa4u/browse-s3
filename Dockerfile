@@ -7,6 +7,6 @@ COPY . /home/node/app
 RUN chown -fR node:node /home/node/app
 USER node
 WORKDIR /home/node/app
-RUN yarn && yarn build && rm -rf /home/node/.cache && rm -rf /home/node/.yarn
+RUN yarn && yarn build && rm -rf /home/node/.cache && rm -rf /home/node/.yarn && rm -rf /tmp/*
 
 CMD ["yarn","start"]
