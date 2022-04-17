@@ -26,6 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: yarn
+    - run: npx browserslist@latest --update-db && yarn
     - run: yarn run build
     - run: npm install -g npm-run-all && yarn run testall
