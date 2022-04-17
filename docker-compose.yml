@@ -9,5 +9,5 @@ services:
     volumes:
       - ./:/home/node/app
     expose:
-      - "7777"
+      - "7776"
     command: "yarn start"
