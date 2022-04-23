@@ -88,7 +88,6 @@ class S3ObjectInfo extends React.Component<ObjectProps, ObjectsState> {
                     <meta name="description" content="An archive of VTuber stuff" />
                 </Head>
                 <main className="py-8 quick-container">
-                    <CocoHeader />
                     <ViewModeChange initial={this.state.viewMode} onChange={this.changeViewModeFromClick} />
                     <hr className="mt-4" />
                     <Breadcrumbs path={restMeerge} className="my-4" isViewMode />
