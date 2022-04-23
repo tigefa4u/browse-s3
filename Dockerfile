@@ -1,12 +1,20 @@
-# specify the node base image with your desired version node:<version>
-FROM node:14-alpine
-# replace this with your application's default port
+FROM phusion/baseimage:focal-1.2.0
+
+ENV DEBIAN_FRONTEND="noninteractive" DEBCONF_NONINTERACTIVE_SEEN="true"
+
+RUN apt-get update && \
+		apt-get -y install tzdata curl && \
+		ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && dpkg-reconfigure -f noninteractive tzdata && \
+		apt-get install -y apt-utils sudo && \
+		apt-get update && apt-get dist-upgrade -y && \
+		curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
+		apt-get install -y nodejs
+
+COPY . /app
+WORKDIR /app
+
+RUN npm install -g npm && npm install --force && npm run build
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/.cache /root/.npm
 EXPOSE 7776
-
-COPY . /home/node/app
-
-WORKDIR /home/node/app
-RUN yarn && yarn build && rm -rf /root/.cache && rm -rf /root/.yarn && rm -rf /home/node/.cache && rm -rf /home/node/.yarn && rm -rf /tmp/*
-RUN chown -fR node:node /home/node/app
-USER node
-CMD ["yarn","start"]
+ENTRYPOINT ["npm","run", "start"]
