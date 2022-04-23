@@ -97,11 +97,10 @@ class S3BucketPathViewer extends React.Component<S3BucketProps, IndexState> {
         return (
             <React.Fragment>
                 <Head>
-                    <title>VTHell Archive</title>
+                    <title>Browse S3 Archive</title>
                     <meta name="description" content="An archive of VTuber stuff" />
                 </Head>
                 <main className="py-8 quick-container">
-                    <CocoHeader />
                     <ViewModeChange initial={this.state.viewMode} onChange={this.changeViewModeFromClick} />
                     <hr className="mt-4" />
                     <BucketViewer
