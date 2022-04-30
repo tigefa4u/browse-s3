@@ -29,7 +29,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         architecture: ${{ matrix.architecture }}
         check-latest: true
-        cache: 'yarn'
+        cache: 'npm'
     - run: npx browserslist@latest --update-db && yarn
     - run: yarn run build
       env:
