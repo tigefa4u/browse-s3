@@ -31,7 +31,7 @@ jobs:
         architecture: ${{ matrix.architecture }}
         check-latest: true
         cache: 'npm'
-    - run: npx browserslist@latest --update-db && npm install
+    - run: npm install
     - run: npm run build
       env:
         S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
