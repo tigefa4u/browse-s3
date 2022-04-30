@@ -1,6 +1,6 @@
 FROM phusion/baseimage:focal-1.2.0
 
-ENV DEBIAN_FRONTEND="noninteractive" DEBCONF_NONINTERACTIVE_SEEN="true"
+ENV DEBIAN_FRONTEND="noninteractive" DEBCONF_NONINTERACTIVE_SEEN="true" TZ="Asia/Jakarta"
 
 RUN apt-get update && \
 		apt-get -y install tzdata curl && \
