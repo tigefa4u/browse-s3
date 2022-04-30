@@ -13,7 +13,7 @@ RUN apt-get update && \
 COPY . /app
 WORKDIR /app
 
-RUN npm install -g npm && npm install --force && npm run build
+RUN npm install -g npm && npm install && npm run build
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/.cache /root/.config /root/.npm
 EXPOSE 7776
