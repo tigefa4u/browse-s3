@@ -9,8 +9,8 @@
   "private": false,
   "scripts": {
     "build": "next build",
-    "start": "next start -p 7776",
-    "dev": "next dev -p 7777",
+    "start": "next start",
+    "dev": "next dev",
     "format": "prettier --write .",
     "type-check": "tsc --pretty --noEmit",
     "lint": "eslint --ext ts --ext tsx --ext js pages/ lib/ components/",
@@ -23,6 +23,7 @@
     "@mdi/js": "^5.9.55",
     "@mdi/react": "^1.5.0",
     "@types/mime-types": "^2.1.1",
+    "@vercel/nft": "^0.18.2",
     "ky": "^0.28.5",
     "luxon": "^2.0.2",
     "mime-types": "^2.1.32",
